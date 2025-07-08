@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mobile Price Predictor</title>
+    <style>
+        body {
+            background-color: #007BFF;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            color: #333;
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        input[type="text"] {
+            background-color: yellow;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            padding: 12px;
+            margin-top: 25px;
+            width: 100%;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Mobile Price Predictor</h2>
+        <form method="POST">
+            {% for feature in features %}
+                <label>{{ feature.replace("_", " ").title() }}</label>
+                <input type="text" name="{{ feature }}" required>
+            {% endfor %}
+            <input type="submit" value="Predict Price">
+        </form>
+    </div>
+</body>
+</html>

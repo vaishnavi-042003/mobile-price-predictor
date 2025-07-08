@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Mobile Price</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://i.imgur.com/w3K3Qb6.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .box {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px 60px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .heading {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #00ffcc;
+        }
+
+        .price {
+            font-size: 60px;
+            font-weight: bold;
+            color: #ffff00;
+            margin-bottom: 30px;
+        }
+
+        .suggestions {
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            color: #ffffff;
+            margin-top: 20px;
+        }
+
+        .back-btn {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="heading">📱 Your Mobile Price</div>
+        <div class="price">₹{{ prediction }}</div>
+
+        {% if suggestions %}
+        <div class="suggestions">
+              <strong>To increase your market value:</strong><br>
+            Try improving these features:
+            <br><br>
+            <strong>{{ suggestions|join(', ') }}</strong>
+        </div>
+        {% endif %}
+
+        <a href="/" class="back-btn">Predict Another</a>
+    </div>
+</body>
+</html>
